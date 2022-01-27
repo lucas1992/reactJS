@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 import './NavBar.css';
 
 function NavBar() {
-  return <>
+  return (
       <Navbar bg="dark" variant="dark">
         <Container>
             <img src="/ecommerce_logo.png" className="logo" />
             <Navbar.Brand href="#home">Ecommerce Etcheverry</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="# ">Home</Nav.Link>
               <Nav.Link href="#tecnology">Tecnologia</Nav.Link>
               <Nav.Link href="#dress">Indumentaria</Nav.Link>
             </Nav>
         </Container>
       </Navbar>
-  </>;
+  );
 }
 
 export default NavBar;
