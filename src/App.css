@@ -37,7 +37,19 @@
   }
 }
 
-.custom-text-greeting{
+
+.ml-1 {
     margin-left: 1rem;
+}
+
+.ml--2 {
+    margin-left: 0.5rem;
+}
+
+.mt-2 {
     margin-top: 2rem;
+}
+
+.inline {
+    display: inline;
 }

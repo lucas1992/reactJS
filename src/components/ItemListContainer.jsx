@@ -1,7 +1,10 @@
+import ItemCount from './ItemCount';
+
 function ItemListContainer(props) {
   return (
     <>
-        <h3 className="custom-text-greeting"> {props.greeting} </h3>
+        <h3 className="ml-1 mt-2"> {props.greeting} </h3>
+        <ItemCount />
     </>
   );
 }
