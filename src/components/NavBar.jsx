@@ -1,17 +1,24 @@
-import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem, Container } from 'react-bootstrap';
-import React, { Component } from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import './NavBar.css';
+import CartWidget from './CartWidget';
 
 function NavBar() {
   return (
       <Navbar bg="dark" variant="dark">
         <Container>
-            <img src="/ecommerce_logo.png" className="logo" />
+            <img src="/ecommerce_logo.png" className="logo" alt="loco ecommerce"/>
             <Navbar.Brand href="#home">Ecommerce Etcheverry</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="# ">Home</Nav.Link>
               <Nav.Link href="#tecnology">Tecnologia</Nav.Link>
               <Nav.Link href="#dress">Indumentaria</Nav.Link>
+            </Nav>
+            <Nav className="justify-content-end">
+              <Nav.Link href="#register">Registrarse</Nav.Link>
+              <Nav.Link href="#login">Ingresar</Nav.Link>
+              <div className="cart">
+                    <CartWidget className="cart" />
+              </div>
             </Nav>
         </Container>
       </Navbar>
