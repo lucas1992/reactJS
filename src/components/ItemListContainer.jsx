@@ -1,4 +1,5 @@
-import ItemCount from './ItemCount';
+import ItemList from './ItemList';
+import './ItemListContainer.css';
 
 function showCartCount(varCount){
     alert(varCount);
@@ -7,8 +8,11 @@ function showCartCount(varCount){
 function ItemListContainer(props) {
   return (
     <>
-        <h3 className="ml-1 mt-2"> {props.greeting} </h3>
-        <ItemCount stock="5" initial="1" onAdd={showCartCount}/>
+        <section id="section-products-list">
+            <div className="flex-container">
+                <ItemList items={props.items} />
+            </div>
+        </section>
     </>
   );
 }
