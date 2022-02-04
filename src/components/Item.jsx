@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 function Item( { item }) {
   return (
-    <Card style={{ width: '22rem' }} className="card-margin" >
+    <Card className="card-margin" >
       <Card.Img variant="top" src={`${item.pictureUrl}`} className="imagen-producto" />
       <Card.Body>
         <Card.Title>{item.title}</Card.Title>

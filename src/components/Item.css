@@ -1,5 +1,5 @@
 .imagen-producto {
-    width: auto;
+    width: auto !important;
     height: 15rem;
     margin: auto;
 }
