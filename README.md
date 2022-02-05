@@ -5,6 +5,7 @@ _Es un repositorio utilizado con el único fin de realizar las practicas del cur
 ## Imagenes del proyecto 🚀
 ![Alt text](/imagenes_proyecto/1.png?raw=true "")
 ![Alt text](/imagenes_proyecto/2.png?raw=true "")
+![Alt text](/imagenes_proyecto/gif_routing.gif "")
 
 ### Pre-requisitos 📋
 
@@ -41,7 +42,7 @@ Uso [Etcheverry](https://github.com/lucas1992/reactJS) para el versionado.
 
 ## Autores ✒️
 
-* **Etcheverry Lucas** - *Trabajo Inicial* - [villanuevand](https://github.com/lucas1992/reactJS)
+* **Etcheverry Lucas** - *Trabajo Inicial* - [lucas](https://github.com/lucas1992/reactJS)
 
 
 ## Licencia 📄

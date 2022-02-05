@@ -14,11 +14,11 @@ function ItemListContainer(props) {
             setProdutos(props.items);
             break;
           case "alcohol":
-            let products_alcohol = props.items.filter(prod => prod.category.id === 9);
+            let products_alcohol = props.items.filter(prod => prod.category.id !== 9);
             setProdutos(products_alcohol);
             break;
           case "not-alcohol":
-            let products_not_alcohol = props.items.filter(prod => prod.category.id !== 9);
+            let products_not_alcohol = props.items.filter(prod => prod.category.id == 9);
             setProdutos(products_not_alcohol);
             break;
           case "register":
