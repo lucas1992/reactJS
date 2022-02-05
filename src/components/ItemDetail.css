@@ -1,0 +1,29 @@
+.imagen-producto {
+    width: auto !important;
+    height: 20rem;
+    margin: auto;
+}
+
+.card-margin {
+    margin: 1rem;
+}
+
+
+.view-card-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.view-card-description {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.view-item-count {
+    display: block;
+}
