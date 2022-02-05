@@ -30,7 +30,7 @@ NPM START
 
 _Herramientas utilizadas para realizar el proyecto_
 
-* [Bootstrap](https://react-bootstrap.github.io/) - 
+* [Bootstrap](https://react-bootstrap.github.io/) - biblioteca multiplataforma
 * [ReactJS](https://es.reactjs.org/) - El framework web usado
 * [NPM](https://www.npmjs.com/) - Manejador de dependencias
 
