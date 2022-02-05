@@ -27,3 +27,15 @@
 .view-item-count {
     display: block;
 }
+
+.current-category {
+    text-decoration: none;
+}
+
+.current-category a{
+    text-decoration: none !important;
+}
+
+.category {
+    text-decoration: none !important;
+}

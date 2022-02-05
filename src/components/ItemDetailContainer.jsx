@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
 
 const { products } = require('../utils/products');
 
 function ItemDetailContainer () {
   const [detalle, setDetalle] = useState([]);
-
+  const { itemId } = useParams();
   useEffect(() => {
     let is_ok = true;
     const customFetch = (time, task) => {
@@ -19,10 +20,18 @@ function ItemDetailContainer () {
             }
         });
     }
-    customFetch(2000, products[5])
-        .then(response => setDetalle(response))
-        .catch(err => console.log(err))
-  }, [])
+    if(itemId != null){
+        console.log(itemId)
+        customFetch(2000, products[parseInt(itemId)])
+            .then(response => setDetalle(response))
+            .catch(err => console.log(err))
+    }else{
+        customFetch(2000, products[5])
+            .then(response => setDetalle(response))
+            .catch(err => console.log(err))
+    }
+
+  }, [itemId])
 
 
   return (

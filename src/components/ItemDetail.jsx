@@ -2,6 +2,11 @@ import { Card } from 'react-bootstrap';
 import './ItemDetail.css';
 import ItemCount from './ItemCount';
 
+function showCartCount(varCount){
+    alert(varCount);
+}
+
+
 function ItemDetail( { item }) {
   return (
     <Card className="card-margin" >
@@ -15,7 +20,7 @@ function ItemDetail( { item }) {
                 <h6 className="ml-1" ><strong>Vendidos:</strong> {item.sales} </h6>
                 <h3 className="ml-1"><strong>PRECIO: ${item.cost}</strong></h3>
                 <div className="view-item-count mt-4">
-                    <ItemCount stock={item.stock} initial="0" onAdd=""/>
+                    <ItemCount stock={item.stock} initial="0" onAdd={showCartCount}/>
                 </div>
             </div>
         </div>

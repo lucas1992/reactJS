@@ -7,3 +7,11 @@
 .card-margin {
     margin: 1rem;
 }
+
+.current-category a{
+    text-decoration: none !important;
+}
+
+.category {
+    text-decoration: none !important;
+}

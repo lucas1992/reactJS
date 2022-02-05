@@ -1,6 +1,7 @@
 const products = [
     {
       id: 30,
+      itemId: 0,
       name: "Agua Con Gas 1,5 lts",
       stock: 100,
       cost: 140,
@@ -27,6 +28,7 @@ const products = [
     },
     {
       id: 29,
+      itemId: 1,
       name: "Agua Sin Gas 1,5 lts",
       stock: 100,
       cost: 140,
@@ -58,6 +60,7 @@ const products = [
     },
     {
       id: 76,
+      itemId: 2,
       name: "Alambrado Chardonnay 750 ml",
       stock: 92,
       cost: 575,
@@ -84,6 +87,7 @@ const products = [
     },
     {
       id: 170,
+      itemId: 3,
       name: "Alambrado Malbec 750ml",
       stock: 100,
       cost: 575,
@@ -110,6 +114,7 @@ const products = [
     },
     {
       id: 233,
+      itemId: 4,
       name: "Alambrado Malbec 750 ml con Estuche",
       stock: 100,
       cost: 765,
@@ -136,6 +141,7 @@ const products = [
     },
     {
       id: 139,
+      itemId: 5,
       name: "Altos del Plata Cabernet Sauvignon 750 ml",
       stock: 100,
       cost: 490,
@@ -162,6 +168,7 @@ const products = [
     },
     {
       id: 68,
+      itemId: 6,
       name: "Altos del Plata Chardonnay 750 ml",
       stock: 89,
       cost: 490,
@@ -188,6 +195,7 @@ const products = [
     },
     {
       id: 222,
+      itemId: 7,
       name: "Altos del Plata Malbec 375 ml",
       stock: 100,
       cost: 300,
@@ -214,6 +222,7 @@ const products = [
     },
     {
       id: 135,
+      itemId: 8,
       name: "Altos del Plata Malbec 750 ml",
       stock: 100,
       cost: 490,
@@ -240,6 +249,7 @@ const products = [
     },
     {
       id: 31,
+      itemId: 9,
       name: "Amareto Disaronno 700 ml",
       stock: 100,
       cost: 3150,

@@ -1,19 +1,25 @@
 import './Item.css';
 import ItemCount from './ItemCount';
 import { Card } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
+function showCartCount(varCount){
+    alert(varCount);
+}
 
 function Item( { item }) {
   return (
     <Card className="card-margin" >
-      <Card.Img variant="top" src={`${item.pictureUrl}`} className="imagen-producto" />
+      <NavLink to={`/item/${item.itemId}`} activeClassName="current-category" className="category">
+          <Card.Img variant="top" src={`${item.image}`} className="imagen-producto" />
+      </NavLink>
       <Card.Body>
-        <Card.Title>{item.title}</Card.Title>
         <Card.Text>
-            {item.description}
+            <h3 className="ml-1">{item.name}</h3>
             <br />
-            <strong>PRECIO: {item.price}</strong>
+            <strong className="ml-1">PRECIO: ${item.cost}</strong>
         </Card.Text>
-        <ItemCount stock={item.stock} initial="0" onAdd=""/>
+        <ItemCount stock={item.stock} initial="0" onAdd={showCartCount}/>
       </Card.Body>
     </Card>
   );
