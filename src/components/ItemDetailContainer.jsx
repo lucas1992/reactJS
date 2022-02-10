@@ -21,7 +21,6 @@ function ItemDetailContainer () {
         });
     }
     if(itemId != null){
-        console.log(itemId)
         customFetch(2000, products[parseInt(itemId)])
             .then(response => setDetalle(response))
             .catch(err => console.log(err))

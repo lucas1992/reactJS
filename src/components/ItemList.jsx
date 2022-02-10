@@ -4,9 +4,9 @@ function ItemList({ items }) {
   return (
     <>
       {
-        items.map(producto => (
-            <Item item={producto} key={producto.id} />
-        ))
+        items.length > 0
+        ? items.map(producto => ( <Item item={producto} key={producto.id} />))
+        : <p>Cargando productos...</p>
       }
     </>
   );
