@@ -5,6 +5,9 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CartContext from './components/CartContext';
+import Cart from './components/Cart';
+
 
 const { products } = require('./utils/products');
 
@@ -39,7 +42,7 @@ function App() {
             <Route exact path="/" element={<ItemListContainer items={productos} />}/>
             <Route exact path="/category/:categoryId" element={<ItemListContainer items={productos} />} />
             <Route exact path="/item/:itemId" element={<ItemDetailContainer />} />
-            <Route exact path="/cart" element={<div><h2>Pagina en desarrollo...</h2></div>} />
+            <Route exact path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
   );

@@ -18,17 +18,20 @@ function ItemListContainer(props) {
             setProdutos(products_alcohol);
             break;
           case "not-alcohol":
-            let products_not_alcohol = props.items.filter(prod => prod.category.id == 9);
+            let products_not_alcohol = props.items.filter(prod => prod.category.id === 9);
             setProdutos(products_not_alcohol);
             break;
           case "register":
               alert("Sección de registro aún no desarrollada");
               setProdutos(props.items);
+              break;
           case "login":
               alert("Sección de login aún no desarrollada");
               setProdutos(props.items);
+              break;
           default:
             setProdutos(props.items);
+            break;
 
 
         }

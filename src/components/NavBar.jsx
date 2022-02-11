@@ -20,7 +20,9 @@ function NavBar() {
               <NavLink to={"/category/register"} activeClassName="current-category" className="category"><Nav.Link href="#register">Registrarse</Nav.Link></NavLink>
               <NavLink to={"/category/login"} activeClassName="current-category" className="category"><Nav.Link href="#login">Ingresar</Nav.Link></NavLink>
               <div className="cart">
+                <NavLink to={"/cart"} activeClassName="current-category" className="category">
                     <CartWidget className="cart" />
+                </NavLink>
               </div>
             </Nav>
         </Container>
