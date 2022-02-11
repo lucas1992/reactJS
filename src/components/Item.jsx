@@ -2,15 +2,19 @@ import './Item.css';
 import ItemCount from './ItemCount';
 import { Card } from 'react-bootstrap';
 import {useNavigate, NavLink} from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import CartContext from './CartContext';
 
 
 function Item( { item }) {
-  const [cantidad, setCantidad] = useState([]);
+  const cart = useContext(CartContext);
+  const [cantidad, setCantidad] = useState(0);
   const navigate = useNavigate();
+
   function showCartCount(varCount){
     setCantidad(varCount);
-    console.log("Item", varCount);
+    console.log(cart);
+    cart.addItem(item, varCount);
     navigate('/cart', {replace: true})
   }
 

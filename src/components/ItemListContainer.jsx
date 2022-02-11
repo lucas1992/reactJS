@@ -35,7 +35,7 @@ function ItemListContainer(props) {
 
 
         }
-  }, [categoryId])
+  }, [categoryId, setProdutos])
 
 
   return (

@@ -30,7 +30,7 @@ function ItemDetailContainer () {
             .catch(err => console.log(err))
     }
 
-  }, [itemId])
+  }, [itemId, setDetalle])
 
 
   return (

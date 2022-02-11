@@ -1,12 +1,17 @@
 import React, { useContext, useState } from 'react';
 
-const CartContextProvider = React.createContext(false);
+export const CartContext = React.createContext();
 
-export default function CartContext({ defaultValue=[], children}){
-    const [ cart, setCart ] = useState(defaultValue);
+const CartContextProvider = ({ children }) => {
+    const [ cart, setCart ] = useState([]);
     const [ cartIds, setCartIds ] = useState(new Set()); // para búsquedas optimizadas
 
     function addItem(item, quantity){
+        if(quantity <= 0){
+            removeItem(item.id);
+            return
+        }
+
         if(isInCart(item.id)){
             updateQuantity(item, quantity);
             return
@@ -31,9 +36,7 @@ export default function CartContext({ defaultValue=[], children}){
     }
 
     function removeItem(id){
-        const newCart = cart.filter(item => item.id !== id);
-        setCart(newCart);
-
+        setCart(cart.filter(item => item.id !== id));
         const newCartIds = cartIds;
         newCartIds.delete(id);
         setCartIds(newCartIds);
@@ -59,8 +62,12 @@ export default function CartContext({ defaultValue=[], children}){
     }
 
 
-    return <CartContextProvider.Provider value={{ cart, addItem, isInCart, removeItem, clear, getItem, cartSize: cart.length}}>
-        {children}
-    </CartContextProvider.Provider>
+    return (
+        <CartContext.Provider value={{ cart, addItem, isInCart, removeItem, clear, getItem, cartSize: cart.length}}>
+            { children }
+        </CartContext.Provider>
+    );
 
 }
+
+export default CartContextProvider;
