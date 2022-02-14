@@ -9,6 +9,7 @@ function ItemListContainer(props) {
   const [productos, setProdutos] = useState([]);
   const { categoryId } = useParams();
   useEffect(() => {
+        /*
         switch(categoryId) {
           case "all":
             setProdutos(props.items);
@@ -32,9 +33,8 @@ function ItemListContainer(props) {
           default:
             setProdutos(props.items);
             break;
-
-
         }
+        */
   }, [categoryId, setProdutos])
 
 

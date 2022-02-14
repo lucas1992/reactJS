@@ -1,15 +1,16 @@
 import { Card } from 'react-bootstrap';
 import './ItemDetail.css';
 import ItemCount from './ItemCount';
-import { useState } from 'react';
+import { useContext } from 'react';
 import {useNavigate} from 'react-router-dom';
+import { CartContext } from './CartContext';
 
 function ItemDetail( { item }) {
-  const [cantidad, setCantidad] = useState([]);
+  const cart = useContext(CartContext);
   const navigate = useNavigate();
-  function showCartCount(varCount){
-    setCantidad(varCount);
-    console.log("ItemDetail", varCount);
+
+  function addToCart(varCount){
+    cart.addItem(item, varCount);
     navigate('/cart', {replace: true})
   }
 
@@ -29,7 +30,7 @@ function ItemDetail( { item }) {
                         <h6 className="ml-1" ><strong>Vendidos:</strong> {item.sales} </h6>
                         <h3 className="ml-1"><strong>PRECIO: ${item.cost}</strong></h3>
                         <div className="view-item-count mt-4">
-                            <ItemCount stock={item.stock} initial="0" onAdd={showCartCount}/>
+                            <ItemCount stock={item.stock} initial="0" onAdd={addToCart}/>
                         </div>
                     </div>
                 </>

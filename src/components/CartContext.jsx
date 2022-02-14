@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
 export const CartContext = React.createContext();
 
 const CartContextProvider = ({ children }) => {
     const [ cart, setCart ] = useState([]);
+    const [ count, setCount ] = useState(0);
     const [ cartIds, setCartIds ] = useState(new Set()); // para búsquedas optimizadas
 
     function addItem(item, quantity){
@@ -11,7 +12,6 @@ const CartContextProvider = ({ children }) => {
             removeItem(item.id);
             return
         }
-
         if(isInCart(item.id)){
             updateQuantity(item, quantity);
             return
@@ -23,6 +23,7 @@ const CartContextProvider = ({ children }) => {
         const newCartIds = cartIds;
         newCartIds.add(item.id);
         setCartIds(newCartIds);
+        setTotalCount();
     }
 
     function updateQuantity(item, quantity){
@@ -33,6 +34,7 @@ const CartContextProvider = ({ children }) => {
             }
         })
         setCart(newCart);
+        setTotalCount();
     }
 
     function removeItem(id){
@@ -40,16 +42,18 @@ const CartContextProvider = ({ children }) => {
         const newCartIds = cartIds;
         newCartIds.delete(id);
         setCartIds(newCartIds);
+        setTotalCount();
 
     }
 
     function clear(){
         setCart([]);
         setCartIds(new Set());
+        setTotalCount();
     }
 
     function isInCart(id){
-        const result = (id in cartIds) ? true : false;
+        const result = (cartIds.has(id)) ? true : false;
         return result;
     }
 
@@ -61,9 +65,16 @@ const CartContextProvider = ({ children }) => {
         return result;
     }
 
+    function setTotalCount(){
+        let quantity = 0;
+        cart.forEach((item) => {
+            quantity += item.quantity;
+        })
+        setCount(quantity);
+    }
 
     return (
-        <CartContext.Provider value={{ cart, addItem, isInCart, removeItem, clear, getItem, cartSize: cart.length}}>
+        <CartContext.Provider value={{ cart, addItem, isInCart, removeItem, clear, getItem, count: count}}>
             { children }
         </CartContext.Provider>
     );
