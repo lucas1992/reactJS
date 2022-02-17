@@ -15,9 +15,10 @@ function NavBar() {
             <img src="/ecommerce_logo.png" className="logo" alt="logo ecommerce"/>
             <NavLink to={"/"} className="category brand-link">Ecommerce Etcheverry</NavLink>
             <Nav className="me-auto">
-              <NavLink to={"/category/all"} className="category nav-link">Todos</NavLink>
-              <NavLink to={"/category/not-alcohol"} className="category nav-link">Sin alcohol</NavLink>
-              <NavLink to={"/category/alcohol"} className="category nav-link">Con alcohol</NavLink>
+              <NavLink to={"/category/0"} className="category nav-link">Todos</NavLink>
+              <NavLink to={"/category/9"} className="category nav-link">Sin alcohol</NavLink>
+              <NavLink to={"/category/1"} className="category nav-link">Vinos</NavLink>
+              <NavLink to={"/category/5"} className="category nav-link">Licores</NavLink>
             </Nav>
             <Nav className="justify-content-end">
               <NavLink to={"/category/register"} className="category nav-link">Registrarse</NavLink>
