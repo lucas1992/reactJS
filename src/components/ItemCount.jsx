@@ -5,7 +5,7 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { useState, useEffect } from "react";
 import './ItemCount.css';
 
-const ItemCount = ({ stock, initial = 0,  onAdd }) => {
+const ItemCount = ({ stock, initial,  onAdd }) => {
   const [cartCount, setCartCount] = useState(parseInt(initial));
 
 
@@ -17,7 +17,7 @@ const ItemCount = ({ stock, initial = 0,  onAdd }) => {
         }else{
             setCartCount(0);
         }
-  }, []);
+  }, [initial, stock, setCartCount]);
 
 
   const decrement = () => {

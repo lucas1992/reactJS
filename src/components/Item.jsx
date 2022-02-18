@@ -2,11 +2,12 @@ import './Item.css';
 import ItemCount from './ItemCount';
 import { Card } from 'react-bootstrap';
 import {useNavigate, NavLink} from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from './CartContext';
 
 
 function Item( { item }) {
+  const [initial, setInitial] = useState("0");
   const cart = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -14,6 +15,14 @@ function Item( { item }) {
     cart.addItem(item, varCount);
     navigate('/cart', {replace: true})
   }
+
+  useEffect(() => {
+       if(cart.isInCart(item.id)){
+            let item_cart = cart.getItem(item.id);
+            setInitial(item_cart[0].quantity);
+       }
+
+  }, [item, cart, setInitial, initial])
 
   return (
     <Card className="card-margin" >
@@ -26,7 +35,7 @@ function Item( { item }) {
             <br />
             <strong className="ml-1">PRECIO: ${item.cost}</strong>
         </div>
-        <ItemCount stock={item.stock} initial="0" onAdd={addToCart}/>
+        <ItemCount stock={item.stock} initial={initial} onAdd={addToCart}/>
       </Card.Body>
     </Card>
   );

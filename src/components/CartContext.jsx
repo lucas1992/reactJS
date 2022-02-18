@@ -58,7 +58,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     function getItem(id){
-        if(!isInCart()){
+        if(!isInCart(id)){
             return false;
         }
         const result = cart.filter(item => item.id === id);

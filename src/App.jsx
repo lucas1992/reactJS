@@ -32,7 +32,7 @@ function App() {
     consultaProductos(2000, mostrarProductos(products))
         .then(respuesta => setProductos(respuesta))
         .catch(err => console.log(err))
-  }, [])
+  }, [setProductos])
 
   return (
       <CartContextProvider>
