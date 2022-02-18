@@ -43,7 +43,9 @@ const CartContextProvider = ({ children }) => {
         newCartIds.delete(id);
         setCartIds(newCartIds);
         setTotalCount();
-
+        console.log(cart.filter(item => item.id !== id));
+        console.log(count);
+        console.log(cart);
     }
 
     function clear(){

@@ -1,50 +1,11 @@
 import './App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import { useEffect, useState } from 'react';
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Cart from './components/Cart';
-import CartContextProvider from './components/CartContext';
-
-const { products } = require('./utils/products');
+import Home from "./pages/Home";
+import CartContextProvider from './components/Cart/CartContext';
 
 function App() {
-  const [productos, setProductos] = useState([]);
-
-  useEffect(() => {
-    let is_ok = true;
-    let mostrarProductos = (productos) => {
-        return productos;
-    }
-    let consultaProductos = (time, task) => {
-        return new Promise((resolve, reject) => {
-            if (is_ok) {
-                setTimeout(() => {
-                    resolve(task)
-                }, time);
-            } else {
-                reject("Error")
-            }
-        });
-    }
-    consultaProductos(2000, mostrarProductos(products))
-        .then(respuesta => setProductos(respuesta))
-        .catch(err => console.log(err))
-  }, [setProductos])
-
   return (
       <CartContextProvider>
-          <BrowserRouter>
-            <NavBar />
-            <Routes>
-                <Route exact path="/" element={<ItemListContainer items={productos} />}/>
-                <Route exact path="/category/:categoryId" element={<ItemListContainer items={productos} />} />
-                <Route exact path="/item/:itemId" element={<ItemDetailContainer />} />
-                <Route exact path="/cart" element={<Cart />} />
-            </Routes>
-          </BrowserRouter>
+          <Home />
       </CartContextProvider>
   );
 }

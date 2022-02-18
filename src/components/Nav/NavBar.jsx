@@ -1,10 +1,10 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './NavBar.css';
-import CartWidget from './CartWidget';
+import CartWidget from '../Cart/CartWidget';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-import { CartContext } from './CartContext';
+import { CartContext } from '../Cart/CartContext';
 
 
 function NavBar() {
@@ -25,7 +25,7 @@ function NavBar() {
               <NavLink to={"/category/login"} className="category nav-link">Ingresar</NavLink>
               <div className="cart">
                 <NavLink to={"/cart"} className="category">
-                    <CartWidget className="cart" quantity={test.count.toString()}/>
+                    <CartWidget className="cart"/>
                 </NavLink>
               </div>
             </Nav>

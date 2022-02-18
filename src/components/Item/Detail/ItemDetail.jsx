@@ -1,9 +1,9 @@
 import { Card } from 'react-bootstrap';
 import './ItemDetail.css';
-import ItemCount from './ItemCount';
+import ItemCount from '../Count/ItemCount';
 import { useContext, useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import { CartContext } from './CartContext';
+import { CartContext } from '../../Cart/CartContext';
 
 function ItemDetail( { item }) {
   const [initial, setInitial] = useState("0");

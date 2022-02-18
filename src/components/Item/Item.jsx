@@ -1,9 +1,9 @@
 import './Item.css';
-import ItemCount from './ItemCount';
+import ItemCount from './Count/ItemCount';
 import { Card } from 'react-bootstrap';
 import {useNavigate, NavLink} from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import { CartContext } from './CartContext';
+import { CartContext } from '../Cart/CartContext';
 
 
 function Item( { item }) {

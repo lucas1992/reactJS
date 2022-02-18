@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 
-const { products } = require('../utils/products');
+const { products } = require('../../../utils/products');
 
 function ItemDetailContainer () {
   const [detalle, setDetalle] = useState([]);
