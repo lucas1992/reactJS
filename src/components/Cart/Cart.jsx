@@ -9,13 +9,13 @@ import { MdProductionQuantityLimits } from 'react-icons/md';
 import { MdKeyboardReturn } from 'react-icons/md';
 
 const Cart = () => {
-    let cart = useContext(CartContext).cartList;
+    let cart = useContext(CartContext);
     const navigate = useNavigate();
     return (
         <div>
         {
-            cart.length
-            ? cart.map((itemCart) => (
+            cart.cartList.length
+            ? cart.cartList.map((itemCart) => (
                 <Card className="card-margin-cart" key={"card-" + `${itemCart.item.id}`}>
                   <Card.Body key={"card-body-" + `${itemCart.item.id}`}>
                     <div className="view-card-body-cart" key={"card-body-div-" + `${itemCart.item.id}`}>
@@ -41,7 +41,7 @@ const Cart = () => {
             </div>
         }
         {
-            cart.length
+            cart.cartList.length
             ? <div>
                 <h3 className="ml-1"><strong>Precio total:</strong> ${cart.total}</h3>
             </div>
