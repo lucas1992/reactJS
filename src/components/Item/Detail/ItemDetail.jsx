@@ -1,12 +1,11 @@
 import { Card } from 'react-bootstrap';
 import './ItemDetail.css';
 import ItemCount from '../Count/ItemCount';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { CartContext } from '../../Cart/CartContext';
 
 function ItemDetail( { item }) {
-  const [initial, setInitial] = useState("0");
   const cart = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -14,14 +13,6 @@ function ItemDetail( { item }) {
     cart.addItem(item, varCount);
     navigate('/cart', {replace: true})
   }
-
-  useEffect(() => {
-       if(cart.isInCart(item.id)){
-            let item_cart = cart.getItem(item.id);
-            setInitial(item_cart[0].quantity);
-       }
-
-  }, [item, cart, setInitial, initial])
 
   return (
 
@@ -39,7 +30,7 @@ function ItemDetail( { item }) {
                         <h6 className="ml-1" ><strong>Vendidos:</strong> {item.sales} </h6>
                         <h3 className="ml-1"><strong>PRECIO: ${item.cost}</strong></h3>
                         <div className="view-item-count mt-4">
-                            <ItemCount stock={item.stock} initial={initial} onAdd={addToCart}/>
+                            <ItemCount stock={item.stock} initial="1" onAdd={addToCart}/>
                         </div>
                     </div>
                 </>

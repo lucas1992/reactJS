@@ -6,7 +6,7 @@ import { CartContext } from './CartContext';
 function CartWidget() {
   const cart = useContext(CartContext);
   return (
-    <Badge color="secondary" badgeContent={cart.count.toString()}>
+    <Badge color="secondary" badgeContent={`${cart.count}`}>
       <ShoppingCartIcon />{" "}
     </Badge>
   );

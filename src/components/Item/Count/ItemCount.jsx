@@ -21,7 +21,7 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
 
 
   const decrement = () => {
-    if(cartCount === 0){
+    if(cartCount === 1){
         return;
     }
     setCartCount(cartCount - 1);

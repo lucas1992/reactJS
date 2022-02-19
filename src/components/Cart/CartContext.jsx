@@ -1,55 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const CartContext = React.createContext();
 
 const CartContextProvider = ({ children }) => {
-    let [ cart, setCart ] = useState([]);
+    let [ cartList, setCartList ] = useState([]);
     let [ count, setCount ] = useState(0);
     let [ total, setTotal ] = useState(0);
     let [ cartIds, setCartIds ] = useState(new Set()); // para búsquedas optimizadas
 
+    useEffect(() =>{
+        setCount(cartList.reduce((acc, item) => acc + item.quantity, 0));
+        setTotal(cartList.reduce((acc, item) => acc + item.quantity * parseFloat(item.item.cost), 0));
+    }, [cartList])
+
     function addItem(item, quantity){
-        if(quantity <= 0){
-            removeItem(item.id);
-            return
-        }
         if(isInCart(item.id)){
             updateQuantity(item, quantity);
             return
         }
-        const newCart = cart;
-        newCart.push({"item": item, "id": item.id, "quantity": quantity});
-        setCart(newCart);
+        setCartList([...cartList, {item, "id": item.id, "quantity": quantity}]);
 
-        const newCartIds = cartIds;
+        let newCartIds = cartIds;
         newCartIds.add(item.id);
         setCartIds(newCartIds);
-        setTotalCountAndPrice();
     }
 
     function updateQuantity(item, quantity){
-        const newCart = cart;
-        newCart.forEach((element, index) => {
-            if(item.id === element.id){
-                element.quantity = quantity;
-            }
-        })
-        setCart(newCart);
-        setTotalCountAndPrice();
+        let itemInCart = cartList.find((_item) => _item.id === item.id);
+        itemInCart.quantity += quantity;
+        setCartList([
+            ...cartList.filter((_item) => _item.id !== itemInCart.id),
+            { ...itemInCart },
+        ])
     }
 
     function removeItem(id){
-        setCart(cart.filter(item => item.id !== id));
+        setCartList(cartList.filter(item => item.id !== id));
         const newCartIds = cartIds;
         newCartIds.delete(id);
         setCartIds(newCartIds);
-        setTotalCountAndPrice();
     }
 
     function clear(){
-        setCart([]);
+        setCartList([]);
         setCartIds(new Set());
-        setTotalCountAndPrice();
     }
 
     function isInCart(id){
@@ -61,23 +55,12 @@ const CartContextProvider = ({ children }) => {
         if(!isInCart(id)){
             return false;
         }
-        const result = cart.filter(item => item.id === id);
+        const result = cartList.filter(item => item.id === id);
         return result;
     }
 
-    function setTotalCountAndPrice(){
-        let quantity = 0;
-        let price = 0;
-        cart.forEach((item) => {
-            quantity += item.quantity;
-            price += item.quantity * parseFloat(item.item.cost);
-        })
-        setCount(quantity);
-        setTotal(price);
-    }
-
     return (
-        <CartContext.Provider value={{ cart, addItem, isInCart, removeItem, clear, getItem, count: count, total: total}}>
+        <CartContext.Provider value={{ cartList, addItem, isInCart, removeItem, clear, getItem, count: count, total: total}}>
             { children }
         </CartContext.Provider>
     );

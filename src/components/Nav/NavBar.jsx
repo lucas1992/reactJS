@@ -8,7 +8,7 @@ import { CartContext } from '../Cart/CartContext';
 
 
 function NavBar() {
-  const cart = useContext(CartContext);
+  const cart = useContext(CartContext).cartList;
   return (
       <Navbar bg="dark" variant="dark">
         <Container>
@@ -25,7 +25,7 @@ function NavBar() {
               <NavLink to={"/category/login"} className="category nav-link">Ingresar</NavLink>
               <div className="cart">
                 {
-                    cart.cart.length > 0
+                    cart.length
                     ? <NavLink to={"/cart"} className="category">
                         <CartWidget className="cart"/>
                     </NavLink>
