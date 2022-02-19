@@ -1,35 +1,18 @@
 import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
+import fetchItemById from "../../../utils/firebase/fetchById";
 
-const { products } = require('../../../utils/products');
 
 function ItemDetailContainer () {
-  const [detalle, setDetalle] = useState([]);
+  const [detalle, setDetalle] = useState({});
   const { itemId } = useParams();
   useEffect(() => {
-    let is_ok = true;
-    const customFetch = (time, task) => {
-        return new Promise((resolve, reject) => {
-            if (is_ok) {
-                setTimeout(() => {
-                    resolve(task)
-                }, time);
-            } else {
-                reject("Error")
-            }
-        });
-    }
-    if(itemId != null){
-        customFetch(2000, products[parseInt(itemId)])
-            .then(response => setDetalle(response))
-            .catch(err => console.log(err))
-    }else{
-        customFetch(2000, products[5])
-            .then(response => setDetalle(response))
-            .catch(err => console.log(err))
-    }
-
+        fetchItemById(itemId)
+            .then (item => {
+                setDetalle(item);
+            })
+            .catch(error => console.log(error));
   }, [itemId, setDetalle])
 
 

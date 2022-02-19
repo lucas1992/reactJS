@@ -17,7 +17,7 @@ function Item( { item }) {
 
   return (
     <Card className="card-margin" >
-      <NavLink to={`/item/${item.itemId}`} className="category">
+      <NavLink to={`/item/${item.id}`} className="category">
           <Card.Img variant="top" src={`${item.image}`} className="imagen-producto" />
       </NavLink>
       <Card.Body>

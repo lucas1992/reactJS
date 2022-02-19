@@ -4,7 +4,7 @@ function ItemList({ items }) {
   return (
     <>
       {
-        items.length > 0
+        items.length
         ? items.map(producto => ( <Item item={producto} key={producto.id} />))
         : <p>Cargando productos...</p>
       }

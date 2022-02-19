@@ -17,6 +17,7 @@ npm install @mui/material @emotion/react @emotion/styled
 npm install @material-ui/icons1
 npm install react-router-dom
 npm install react-icons --save
+sudo npm install firebase
 ```
 
 ### Instalación 🔧

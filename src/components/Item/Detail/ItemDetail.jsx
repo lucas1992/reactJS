@@ -20,7 +20,7 @@ function ItemDetail( { item }) {
       <Card.Body>
         <div className="view-card-body">
             {
-            item.image
+            item.id
             ? <>
                     <img src={`${item.image}`} alt="imagen producto" className="imagen-producto "/>
                     <div className="view-card-description">
