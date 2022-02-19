@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 export const CartContext = React.createContext();
 
 const CartContextProvider = ({ children }) => {
-    const [ cart, setCart ] = useState([]);
-    const [ count, setCount ] = useState(0);
-    const [ cartIds, setCartIds ] = useState(new Set()); // para búsquedas optimizadas
+    let [ cart, setCart ] = useState([]);
+    let [ count, setCount ] = useState(0);
+    let [ total, setTotal ] = useState(0);
+    let [ cartIds, setCartIds ] = useState(new Set()); // para búsquedas optimizadas
 
     function addItem(item, quantity){
         if(quantity <= 0){
@@ -23,7 +24,7 @@ const CartContextProvider = ({ children }) => {
         const newCartIds = cartIds;
         newCartIds.add(item.id);
         setCartIds(newCartIds);
-        setTotalCount();
+        setTotalCountAndPrice();
     }
 
     function updateQuantity(item, quantity){
@@ -34,7 +35,7 @@ const CartContextProvider = ({ children }) => {
             }
         })
         setCart(newCart);
-        setTotalCount();
+        setTotalCountAndPrice();
     }
 
     function removeItem(id){
@@ -42,16 +43,13 @@ const CartContextProvider = ({ children }) => {
         const newCartIds = cartIds;
         newCartIds.delete(id);
         setCartIds(newCartIds);
-        setTotalCount();
-        console.log(cart.filter(item => item.id !== id));
-        console.log(count);
-        console.log(cart);
+        setTotalCountAndPrice();
     }
 
     function clear(){
         setCart([]);
         setCartIds(new Set());
-        setTotalCount();
+        setTotalCountAndPrice();
     }
 
     function isInCart(id){
@@ -67,16 +65,19 @@ const CartContextProvider = ({ children }) => {
         return result;
     }
 
-    function setTotalCount(){
+    function setTotalCountAndPrice(){
         let quantity = 0;
+        let price = 0;
         cart.forEach((item) => {
             quantity += item.quantity;
+            price += item.quantity * parseFloat(item.item.cost);
         })
         setCount(quantity);
+        setTotal(price);
     }
 
     return (
-        <CartContext.Provider value={{ cart, addItem, isInCart, removeItem, clear, getItem, count: count}}>
+        <CartContext.Provider value={{ cart, addItem, isInCart, removeItem, clear, getItem, count: count, total: total}}>
             { children }
         </CartContext.Provider>
     );

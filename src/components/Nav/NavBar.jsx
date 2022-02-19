@@ -8,7 +8,7 @@ import { CartContext } from '../Cart/CartContext';
 
 
 function NavBar() {
-  const test = useContext(CartContext);
+  const cart = useContext(CartContext);
   return (
       <Navbar bg="dark" variant="dark">
         <Container>
@@ -24,9 +24,13 @@ function NavBar() {
               <NavLink to={"/category/register"} className="category nav-link">Registrarse</NavLink>
               <NavLink to={"/category/login"} className="category nav-link">Ingresar</NavLink>
               <div className="cart">
-                <NavLink to={"/cart"} className="category">
-                    <CartWidget className="cart"/>
-                </NavLink>
+                {
+                    cart.cart.length > 0
+                    ? <NavLink to={"/cart"} className="category">
+                        <CartWidget className="cart"/>
+                    </NavLink>
+                    : ""
+                }
               </div>
             </Nav>
         </Container>

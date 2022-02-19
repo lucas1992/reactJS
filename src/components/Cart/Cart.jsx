@@ -10,8 +10,7 @@ import { MdProductionQuantityLimits } from 'react-icons/md';
 import { MdKeyboardReturn } from 'react-icons/md';
 
 const Cart = () => {
-    const cart = useContext(CartContext);
-    //const [initial, setInitial] = useState("0");
+    let cart = useContext(CartContext);
     const navigate = useNavigate();
     return (
         <div>
@@ -43,7 +42,15 @@ const Cart = () => {
             : <div className="empty-cart">
                 <h3 className="ml-1 mt-4"> <MdProductionQuantityLimits /> Aún no hay productos agregados!</h3>
                 <Button className="ml-1" variant="primary" onClick={() => navigate('/', {replace: true})}>Volver al catálogo <MdKeyboardReturn /></Button>
-              </div>
+            </div>
+        }
+        {
+
+            cart.cart.length > 0
+            ? <div>
+                <h3 className="ml-1"><strong>Precio total:</strong> ${cart.total}</h3>
+            </div>
+            : ""
         }
 
         </div>
