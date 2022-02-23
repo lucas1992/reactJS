@@ -10,9 +10,9 @@ function ItemListContainer(props) {
   const [productos, setProdutos] = useState([]);
   const { categoryId } = useParams();
   useEffect(() => {
-        queryDB("category.id", "==", parseInt(categoryId))
+        queryDB("category.id", "==", parseInt(categoryId), "items")
             .then(items => {
-                ((items.length) ? setProdutos(items) : (fetchItems().then(items => { setProdutos(items) })));
+                ((items.length) ? setProdutos(items) : (fetchItems("items").then(items => { setProdutos(items) })));
             })
             .catch(error => console.log(error));
   }, [categoryId, setProdutos])

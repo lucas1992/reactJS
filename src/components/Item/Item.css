@@ -1,17 +1,23 @@
-.imagen-producto {
+.imagen-producto-item {
     width: auto !important;
     height: 15rem;
     margin: auto;
 }
 
-.card-margin {
+.card-margin-item {
     margin: 1rem;
+    max-width: 22rem !important;
 }
 
 .current-category a{
     text-decoration: none !important;
 }
 
-.category {
+.category-item-flex {
     text-decoration: none !important;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }

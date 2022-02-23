@@ -1,0 +1,9 @@
+.form-checkout {
+    margin-top: 4rem !important;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center
+}

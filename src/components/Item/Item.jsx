@@ -16,13 +16,13 @@ function Item( { item }) {
   }
 
   return (
-    <Card className="card-margin" >
-      <NavLink to={`/item/${item.id}`} className="category">
-          <Card.Img variant="top" src={`${item.image}`} className="imagen-producto" />
+    <Card className="card-margin-item" >
+      <NavLink to={`/item/${item.id}`} className="category-item-flex">
+          <Card.Img variant="top" src={`${item.image}`} className="imagen-producto-item" />
       </NavLink>
       <Card.Body>
         <div>
-            <h3 className="ml-1">{item.name}</h3>
+            <h3 className="ml-1 text-center">{item.name}</h3>
             <br />
             <strong className="ml-1">PRECIO: ${item.cost}</strong>
         </div>

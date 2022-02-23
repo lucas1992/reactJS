@@ -6,6 +6,7 @@
 
 .card-margin-cart {
     margin: 1rem;
+    max-width: none !important;
 }
 
 
@@ -16,7 +17,7 @@
     align-content: start;
 }
 
-.view-card-description {
+.view-card-description-cart {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -65,4 +66,9 @@
     justify-content: center;
     align-content: center;
     align-items: center
+}
+
+.buttons-cart {
+    float: right;
+    margin-right: 2rem;
 }

@@ -8,7 +8,7 @@ function ItemDetailContainer () {
   const [detalle, setDetalle] = useState({});
   const { itemId } = useParams();
   useEffect(() => {
-        fetchItemById(itemId)
+        fetchItemById(itemId, "items")
             .then (item => {
                 setDetalle(item);
             })

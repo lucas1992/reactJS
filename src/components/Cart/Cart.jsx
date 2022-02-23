@@ -20,7 +20,7 @@ const Cart = () => {
                   <Card.Body key={"card-body-" + `${itemCart.item.id}`}>
                     <div className="view-card-body-cart" key={"card-body-div-" + `${itemCart.item.id}`}>
                         <img src={`${itemCart.item.image}`} alt="imagen producto" className="imagen-producto-cart" key={"card-body-div-img-" + `${itemCart.item.id}`}/>
-                        <div className="view-card-description" key={"card-body-div-div-" + `${itemCart.item.id}`}>
+                        <div className="view-card-description-cart" key={"card-body-div-div-" + `${itemCart.item.id}`}>
                             <h4 key={"card-body-div-div-h4-" + `${itemCart.item.id}`}>{itemCart.item.name}</h4>
                             <div key={"card-body-div-div-div-" + `${itemCart.item.id}`} className="detail-inline">
                                 <h6 key={"card-body-div-div-div-h6-1-" + `${itemCart.item.id}`}><strong>Cantidad:</strong> {itemCart.quantity}</h6>
@@ -42,8 +42,9 @@ const Cart = () => {
         }
         {
             cart.cartList.length
-            ? <div>
-                <h3 className="ml-1"><strong>Precio total:</strong> ${cart.total}</h3>
+            ? <div className="buttons-cart">
+                <h3 className="mt-2"><strong>Precio total:</strong> ${cart.total}</h3>
+                <Button className="" variant="primary" onClick={() => navigate('/checkout', {replace: true})}>Finalizar compra</Button>
             </div>
             : ""
         }
