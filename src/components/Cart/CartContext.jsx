@@ -44,6 +44,8 @@ const CartContextProvider = ({ children }) => {
     function clear(){
         setCartList([]);
         setCartIds(new Set());
+        setCount(0);
+        setTotal(0);
     }
 
     function isInCart(id){
