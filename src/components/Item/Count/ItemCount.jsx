@@ -21,7 +21,7 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
 
 
   const decrement = () => {
-    if(cartCount === 1){
+    if(cartCount <= 1){
         return;
     }
     setCartCount(cartCount - 1);
@@ -29,6 +29,9 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
 
   const increment = () => {
     if(cartCount === parseInt(stock)){
+        return;
+    }
+    if(parseInt(stock) <= 0){
         return;
     }
     setCartCount(cartCount + 1);
@@ -48,7 +51,7 @@ const ItemCount = ({ stock, initial,  onAdd }) => {
           </Button>
         </ButtonGroup>
         {
-            parseInt(stock)
+            parseInt(stock) > 0
             ? <Button className="ml--2" variant="primary" onClick={() => onAdd(cartCount)}>Agregar al carrito</Button>
             : <Button className="ml--2" variant="primary" disabled>Agregar al carrito</Button>
         }

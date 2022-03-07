@@ -18,15 +18,17 @@ npm install @material-ui/icons1
 npm install react-router-dom
 npm install react-icons --save
 sudo npm install firebase
+sudo npm install env-cmd or npm install -g env-cmd
 ```
 
-### Instalación 🔧
+### Instalación y ejecución 🔧
 
-_Simplemente se puede instalar con NPM_
+_se puede instalar con NPM de manera muy simple:_
 
 
 ```
-NPM START
+npm install
+npm run start:local
 ```
 
 ## Construido con 🛠️

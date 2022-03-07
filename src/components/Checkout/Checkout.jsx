@@ -19,7 +19,7 @@ const Checkout = () => {
     const handleClose = () => { setShow(false); navigate('/', {replace: true});};
     const handleShow = () => setShow(true);
 
-    const updateStock = () => {
+    const updateStockAndSales = () => {
         cart.cartList.forEach((itemCart) => {
             UpdateDB(itemCart.item.id, "items", {"stock": increment(parseInt(itemCart.quantity)*-1)})
                 .then(result => {})
@@ -27,12 +27,19 @@ const Checkout = () => {
                    console.log(error);
                    setModal({"title": "Upps!! ocurrió un error!", "body": "Lo sentimos mucho, tu pedido ha sido descartado por un error."})
                    handleShow();
+                   return;
+                });
+            UpdateDB(itemCart.item.id, "items", {"sales": increment(parseInt(itemCart.quantity))})
+                .then(result => {})
+                .catch(error => {
+                   console.log(error);
+                   setModal({"title": "Upps!! ocurrió un error!", "body": "Lo sentimos mucho, tu pedido ha sido descartado por un error."})
+                   handleShow();
+                   return;
                 });
         });
 
         cart.clear();
-
-
     }
 
     const handleSubmit = (event) => {
@@ -56,7 +63,7 @@ const Checkout = () => {
         InsertDB(doc, "orders")
             .then(result => {
                setModal({"title": "Pedido realizado!!", "body": "Guarda tu número de pedido para futuras consultas: " + result.id});
-               updateStock();
+               updateStockAndSales();
                handleShow();
             })
             .catch(error => {
@@ -64,6 +71,7 @@ const Checkout = () => {
                setModal({"title": "Upps!! ocurrió un error!", "body": "Lo sentimos mucho, tu pedido ha sido descartado por un error."})
                cart.clear();
                handleShow();
+               return;
             });
     };
 
