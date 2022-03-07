@@ -3,9 +3,9 @@
 _Es un repositorio utilizado con el único fin de realizar las practicas del curso de reactJS de CODERHOUSE_
 
 ## Imagenes del proyecto 🚀
-![Alt text](https://github.com/lucas1992/reactJS/blob/55cb99f556ecfe9cc54b5cca278627297f50e8f9/images_proyecto/1.png?raw=true "")
-![Alt text](https://github.com/lucas1992/reactJS/blob/55cb99f556ecfe9cc54b5cca278627297f50e8f9/images_proyecto/2.png?raw=true "")
-![Alt text](https://github.com/lucas1992/reactJS/blob/ae34e94f8c4c08bd65b723331b1693c395531e10/images_proyecto/gif_routing.gif "")
+![Alt text](https://github.com/lucas1992/reactJS/blob/main/images_proyecto/1.png?raw=true "")
+![Alt text](https://github.com/lucas1992/reactJS/blob/main/images_proyecto/2.png?raw=true "")
+![Alt text](https://github.com/lucas1992/reactJS/blob/main/images_proyecto/gif_routing.gif?raw=true "")
 
 ### Pre-requisitos 📋
 
