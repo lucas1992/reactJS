@@ -12,7 +12,7 @@ function NavBar() {
   return (
       <Navbar bg="dark" variant="dark">
         <Container>
-            <img src="/ecommerce_logo.png" className="logo" alt="logo ecommerce"/>
+            <img src="/reactJS/ecommerce_logo.png" className="logo" alt="logo ecommerce"/>
             <NavLink to={"/"} className="category brand-link">Ecommerce Etcheverry</NavLink>
             <Nav className="me-auto">
               <NavLink to={"/category/0"} className="category nav-link">Todos</NavLink>
